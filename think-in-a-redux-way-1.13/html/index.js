@@ -1,18 +1,56 @@
-const INCREMENT = document.querySelector(".lws-increment")
-const DECREMENT = document.querySelector(".lws-decrement")
-const IncrementForm = document.querySelector(".incrementForm")
-const DecrementForm = document.querySelector(".decrementForm")
-const DeleteItem = document.querySelector(".lws-delete")
-const AddMatch = document.querySelector(".lws-addMatch")
-const PointResult = document.querySelector(".lws-singleResult")
-const Reset = document.querySelector(".lws-reset")
+//dom elements
+const deleteBtn = document.querySelector(".lws-delete")
+const addMatchBtn = document.querySelector(".lws-addMatch")
+const resetBtn = document.querySelector(".lws-reset")
+const allMatchesContainer = document.getElementById("all-matches-container")
 
-const increment = () => {
-  const point = PointResult
-  console.log(point.innerHTML)
+//action indentifiers
+const INCREMENT = "score/increment"
+const DECREMENT = "score/decrement"
+const RESET = "score/reset"
+const DELETE = "score/deleteMatch"
+const ADDANOTHERMATCH = "score/addAnotherMatch"
+
+//action creators
+const increment = (payload) => {
+  return {
+    type: INCREMENT,
+    payload,
+  }
 }
 
-AddMatch.addEventListener("click", () => {
-  console.log("clicked")
-  increment()
-})
+const decrement = (payload) => {
+  return {
+    type: DECREMENT,
+    payload,
+  }
+}
+
+const reset = (payload) => {
+  return {
+    type: RESET,
+    payload,
+  }
+}
+
+const addAnotherMatch = (payload) => {
+  return {
+    type: ADDANOTHERMATCH,
+    payload,
+  }
+}
+
+const deleteMatch = (payload) => {
+  return {
+    type: DELETE,
+    payload,
+  }
+}
+
+//initial state
+const initialState = [
+  {
+    id: 1,
+    score: 0,
+  },
+]
