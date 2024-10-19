@@ -54,3 +54,9 @@ const initialState = [
     score: 0,
   },
 ]
+
+//reducer function
+const StoreReducer = (state = initialState, action) => {}
+
+//create store
+const store = Redux.createStore(StoreReducer)
